@@ -8,7 +8,7 @@ import subprocess as sp
 import platform
 import sys
 
-if platform.system == "Windows":
+if platform.system() == "Windows":
     import msvcrt
 else:
     import termios
@@ -85,7 +85,7 @@ def read_stdin_non_blocking_unix():
 
 
 def read_stdin_non_blocking():
-    if platform.system == "Windows":
+    if platform.system() == "Windows":
         return read_stdin_non_blocking_windows()
     else:
         return read_stdin_non_blocking_unix()
